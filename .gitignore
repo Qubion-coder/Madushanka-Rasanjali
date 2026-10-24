@@ -6,3 +6,6 @@ coverage/
 *.log
 .env*
 !.env.example
+
+# Original full-size photos (site uses compressed copies in public/gallery)
+public/pre/

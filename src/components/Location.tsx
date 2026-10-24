@@ -10,11 +10,11 @@ export const Location: React.FC<LocationProps> = ({ event = 'both' }) => {
   const venues = [
     {
       id: 'ceremony',
-      name: "The Epitome Hotel",
-      city: "Kurunegala, Sri Lanka",
+      name: "Sandhagiri Walawwa",
+      city: "Balangoda, Sri Lanka",
       quote: `"අපගේ ජීවිතයේ සුන්දරතම දිනය සැමරෙන ස්ථානය"`,
-      liveLocationUrl: "https://maps.app.goo.gl/H5gj3nYvdjNJU4y86",
-      imageUrl: "https://q-xx.bstatic.com/xdata/images/hotel/1200x630/479073392.jpg?k=0f268309279e9891f97c63561f9a78a566867cb6b6daa795053b29b6cdb3bd8c&o=",
+      liveLocationUrl: "https://maps.app.goo.gl/E1qsCk1HbVjgX6tn8",
+      mapEmbedUrl: "https://www.google.com/maps/embed?origin=mfe&pb=!1m3!2m1!1s6.6473538,80.6975676!6i16",
       label: "The Venue"
     }
   ];
@@ -51,7 +51,7 @@ export const Location: React.FC<LocationProps> = ({ event = 'both' }) => {
                       <div className="w-16 h-[1px] bg-gradient-to-r from-brand-plum/60 to-transparent" />
                     </div>
 
-                    <h2 className="text-5xl sm:text-6xl font-sinhala text-stone-800 mb-6 leading-tight drop-shadow-sm">
+                    <h2 className="text-4xl sm:text-6xl font-sinhala text-stone-800 mb-6 leading-tight drop-shadow-sm">
                       මංගල <br />
                       <span className="italic font-light text-brand-plum">උත්සවය</span>
                     </h2>
@@ -98,27 +98,27 @@ export const Location: React.FC<LocationProps> = ({ event = 'both' }) => {
               >
                 <div className="absolute -inset-4 sm:-inset-6 border-[2px] border-brand-lavender/30 rounded-[3rem] -z-10 translate-x-2 sm:translate-x-4 translate-y-2 sm:translate-y-4" />
                 
-                <a 
-                  href={venue.liveLocationUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="w-full h-full block rounded-[2.5rem] lg:rounded-[3rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.15)] relative group/map"
-                >
-                  {/* Image Placeholder Masking for premium feel */}
-                  <div className="absolute inset-0 bg-brand-lavender/10 mix-blend-multiply pointer-events-none z-20 group-hover/map:opacity-0 transition-opacity duration-1000" />
-                  
-                  <img
-                    src={venue.imageUrl}
-                    alt={`${venue.name} Location`}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-[2s] ease-in-out group-hover/map:scale-105"
+                <div className="w-full h-full rounded-[2.5rem] lg:rounded-[3rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.15)] relative bg-brand-rose">
+                  <iframe
+                    src={venue.mapEmbedUrl}
+                    title={`${venue.name} Live Map`}
+                    className="absolute inset-0 w-full h-full border-0"
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    allowFullScreen
                   />
 
-                  {/* Decorative Location Pin Overlay */}
-                  <div className="absolute top-6 right-6 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full border border-brand-lavender/30 shadow-lg flex items-center gap-2 pointer-events-none z-30">
+                  {/* Opens the venue in Google Maps */}
+                  <a
+                    href={venue.liveLocationUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="absolute top-6 right-6 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full border border-brand-lavender/30 shadow-lg flex items-center gap-2 z-30 hover:bg-white transition-colors"
+                  >
                     <Map className="w-4 h-4 text-brand-plum animate-pulse" />
                     <span className="text-[9px] uppercase tracking-widest font-bold text-stone-600">Live Map</span>
-                  </div>
-                </a>
+                  </a>
+                </div>
               </motion.div>
 
             </div>

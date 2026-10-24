@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { useForm } from 'react-hook-form';
 import { Heart } from 'lucide-react';
 import { toast } from 'sonner';
+import { submitToSheet } from '../utils/googleSheet';
 
 interface BlessingData {
   name: string;
@@ -12,21 +13,14 @@ interface BlessingData {
 export function BlessingForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { register, handleSubmit, reset, formState: { errors } } = useForm<BlessingData>();
-  const scriptUrl = "https://script.google.com/macros/s/AKfycbz8x8mlUoOB1dJzMTtI-wR1QEea6TciU40hejJ-4WObWDYJN7GOzqQiweArl6i2hidH0w/exec";
 
   const onSubmit = async (data: BlessingData) => {
     setIsSubmitting(true);
 
     try {
-      const payload = new FormData();
-      payload.append('sheet', 'WISH');
-      payload.append('name', data.name);
-      payload.append('message', data.message);
-
-      await fetch(scriptUrl, {
-        method: 'POST',
-        mode: 'no-cors',
-        body: payload,
+      await submitToSheet('WISH', {
+        name: data.name,
+        message: data.message,
       });
 
       toast.success('Your beautiful blessing has been shared!');

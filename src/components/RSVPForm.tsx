@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { CheckCircle, Loader2, Heart, Sparkles } from 'lucide-react';
 import { toast } from 'sonner';
+import { submitToSheet } from '../utils/googleSheet';
 
 interface RSVPFormProps {
   inviteeName?: string;
@@ -16,7 +17,6 @@ export const RSVPForm: React.FC<RSVPFormProps> = ({ inviteeName = '', eventName 
     dietaryNotes: '',
   });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-  const scriptUrl = "https://script.google.com/macros/s/AKfycbz8x8mlUoOB1dJzMTtI-wR1QEea6TciU40hejJ-4WObWDYJN7GOzqQiweArl6i2hidH0w/exec";
 
   useEffect(() => {
     if (inviteeName) {
@@ -30,16 +30,10 @@ export const RSVPForm: React.FC<RSVPFormProps> = ({ inviteeName = '', eventName 
 
     try {
 
-      const payload = new FormData();
-      payload.append('sheet', 'RSVP');
-      payload.append('fullName', formData.fullName);
-      payload.append('guests', formData.guests);
-      payload.append('dietaryNotes', formData.dietaryNotes);
-
-      await fetch(scriptUrl, {
-        method: 'POST',
-        mode: 'no-cors',
-        body: payload,
+      await submitToSheet('RSVP', {
+        fullName: formData.fullName,
+        guests: formData.guests,
+        dietaryNotes: formData.dietaryNotes,
       });
 
       setStatus('success');
@@ -78,7 +72,7 @@ export const RSVPForm: React.FC<RSVPFormProps> = ({ inviteeName = '', eventName 
             <div className="hidden lg:block w-16 h-[1px] bg-gradient-to-r from-brand-plum/60 to-transparent" />
           </div>
 
-          <h2 className="text-5xl sm:text-6xl font-display text-stone-800 tracking-tight leading-[1.1] mb-6 drop-shadow-sm">
+          <h2 className="text-4xl sm:text-6xl font-display text-stone-800 tracking-tight leading-[1.1] mb-6 drop-shadow-sm">
             Reserve <span className="italic font-light text-brand-plum">Your</span> Seat
           </h2>
 
@@ -106,7 +100,7 @@ export const RSVPForm: React.FC<RSVPFormProps> = ({ inviteeName = '', eventName 
                 <div className="w-24 h-24 bg-green-50/80 rounded-full flex items-center justify-center mx-auto mb-8 shadow-inner border border-green-100">
                   <CheckCircle className="w-12 h-12 text-green-500" />
                 </div>
-                <h3 className="text-4xl font-display text-stone-800 mb-4 tracking-tight drop-shadow-sm">With Gratitude</h3>
+                <h3 className="text-3xl sm:text-4xl font-display text-stone-800 mb-4 tracking-tight drop-shadow-sm">With Gratitude</h3>
                 <p className="text-stone-500/90 leading-relaxed font-serif text-lg mb-8">
                   Your response has been warmly received. We cannot wait to celebrate with you!
                 </p>

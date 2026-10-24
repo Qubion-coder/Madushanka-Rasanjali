@@ -22,7 +22,7 @@ export const InviteeBanner: React.FC<InviteeBannerProps> = ({ inviteeName, event
         >
 
 
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-display text-stone-800 tracking-tight mb-4 drop-shadow-sm">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-display text-stone-800 tracking-tight mb-4 drop-shadow-sm">
             {inviteeName}
           </h2>
 

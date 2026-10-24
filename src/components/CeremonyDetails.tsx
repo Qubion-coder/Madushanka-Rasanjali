@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Clock, Calendar, MapPin, Heart, Sparkles, Palette, Utensils } from 'lucide-react';
+import { Clock, Calendar, MapPin, Heart, Sparkles, Palette, Utensils, PenLine, Car } from 'lucide-react';
 
 interface CeremonyDetailsProps {
   event?: string | null;
@@ -30,7 +30,7 @@ export const CeremonyDetails: React.FC<CeremonyDetailsProps> = ({ event = 'both'
               <div className="w-12 sm:w-20 h-[1px] bg-gradient-to-r from-brand-plum/60 to-transparent" />
             </div>
 
-            <h2 className="text-5xl sm:text-6xl lg:text-7xl font-sinhala text-stone-800 mb-8 leading-[1.1] drop-shadow-sm">
+            <h2 className="text-4xl sm:text-6xl lg:text-7xl font-sinhala text-stone-800 mb-8 leading-[1.1] drop-shadow-sm">
                 <>විවාහ <br /><span className="italic font-light text-brand-plum">උත්සවය</span></>
             </h2>
 
@@ -47,8 +47,8 @@ export const CeremonyDetails: React.FC<CeremonyDetailsProps> = ({ event = 'both'
                   <Calendar className="w-5 h-5 text-brand-plum group-hover:scale-110 transition-transform duration-500" />
                 </div>
                 <div>
-                  <h4 className="font-sinhala text-2xl sm:text-3xl text-stone-800 group-hover:text-brand-plum transition-colors duration-500">
-                    දිනය: 2026 ඔක්තෝබර් 29
+                  <h4 className="font-sinhala text-lg sm:text-3xl text-stone-800 group-hover:text-brand-plum transition-colors duration-500">
+                    දිනය: 2026 නොවැම්බර් 05
                   </h4>
                 </div>
               </div>
@@ -59,8 +59,8 @@ export const CeremonyDetails: React.FC<CeremonyDetailsProps> = ({ event = 'both'
                   <MapPin className="w-5 h-5 text-brand-plum group-hover:scale-110 transition-transform duration-500" />
                 </div>
                 <div>
-                  <h4 className="font-sinhala text-2xl sm:text-3xl text-stone-800 leading-relaxed group-hover:text-brand-plum transition-colors duration-500">
-                    <span className="font-semibold text-stone-700">ස්ථානය:</span> The Epitome, <br className="hidden sm:block" /> Kurunegala
+                  <h4 className="font-sinhala text-lg sm:text-3xl text-stone-800 leading-relaxed group-hover:text-brand-plum transition-colors duration-500">
+                    <span className="font-semibold text-stone-700">ස්ථානය:</span> සදගිරි වලව්ව, <br className="hidden sm:block" /> බලන්ගොඩ
                   </h4>
                 </div>
               </div>
@@ -71,8 +71,8 @@ export const CeremonyDetails: React.FC<CeremonyDetailsProps> = ({ event = 'both'
                   <Clock className="w-5 h-5 text-brand-plum group-hover:scale-110 transition-transform duration-500" />
                 </div>
                 <div>
-                  <h4 className="font-sinhala text-2xl sm:text-3xl text-stone-800 leading-relaxed group-hover:text-brand-plum transition-colors duration-500">
-                    <span className="font-semibold text-stone-700">වේලාව:</span> 9.00 AM - 4.00 PM
+                  <h4 className="font-sinhala text-lg sm:text-3xl text-stone-800 leading-relaxed group-hover:text-brand-plum transition-colors duration-500">
+                    <span className="font-semibold text-stone-700">වේලාව:</span> 8.00 AM - 5.30 PM
                   </h4>
                 </div>
               </div>
@@ -83,8 +83,32 @@ export const CeremonyDetails: React.FC<CeremonyDetailsProps> = ({ event = 'both'
                   <Sparkles className="w-5 h-5 text-brand-plum group-hover:scale-110 transition-transform duration-500" />
                 </div>
                 <div>
-                  <h4 className="font-sinhala text-2xl sm:text-3xl text-stone-800 leading-relaxed group-hover:text-brand-plum transition-colors duration-500">
-                    <span className="font-semibold text-stone-700">පෝරුවේ චාරිත්‍ර:</span> 10.00 AM
+                  <h4 className="font-sinhala text-lg sm:text-3xl text-stone-800 leading-relaxed group-hover:text-brand-plum transition-colors duration-500">
+                    <span className="font-semibold text-stone-700">පෝරුවේ චාරිත්‍ර:</span> 9.08 AM
+                  </h4>
+                </div>
+              </div>
+
+              {/* Registration */}
+              <div className="relative group flex items-center min-h-[48px]">
+                <div className="absolute top-1/2 -translate-y-1/2 -left-[64px] sm:-left-[74px] w-12 h-12 bg-white rounded-full border border-brand-lavender/40 shadow-lg flex items-center justify-center group-hover:border-brand-plum group-hover:shadow-[0_4px_15px_rgba(176,137,104,0.3)] transition-all duration-500">
+                  <PenLine className="w-5 h-5 text-brand-plum group-hover:scale-110 transition-transform duration-500" />
+                </div>
+                <div>
+                  <h4 className="font-sinhala text-lg sm:text-3xl text-stone-800 leading-relaxed group-hover:text-brand-plum transition-colors duration-500">
+                    <span className="font-semibold text-stone-700">විවාහ ලියාපදිංචිය:</span> 11.18 AM
+                  </h4>
+                </div>
+              </div>
+
+              {/* Going Away */}
+              <div className="relative group flex items-center min-h-[48px]">
+                <div className="absolute top-1/2 -translate-y-1/2 -left-[64px] sm:-left-[74px] w-12 h-12 bg-white rounded-full border border-brand-lavender/40 shadow-lg flex items-center justify-center group-hover:border-brand-plum group-hover:shadow-[0_4px_15px_rgba(176,137,104,0.3)] transition-all duration-500">
+                  <Car className="w-5 h-5 text-brand-plum group-hover:scale-110 transition-transform duration-500" />
+                </div>
+                <div>
+                  <h4 className="font-sinhala text-lg sm:text-3xl text-stone-800 leading-relaxed group-hover:text-brand-plum transition-colors duration-500">
+                    <span className="font-semibold text-stone-700">ගමන් යාම:</span> 5.18 PM
                   </h4>
                 </div>
               </div>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Send, Loader2, Sparkles } from 'lucide-react';
 import { toast } from 'sonner';
+import { submitToSheet } from '../utils/googleSheet';
 
 interface Wish {
   id: string;
@@ -35,7 +36,6 @@ export const WishesSection: React.FC<WishesSectionProps> = ({ eventParam = 'both
       setFormData(prev => ({ ...prev, name: inviteeName }));
     }
   }, [inviteeName]);
-  const scriptUrl = "https://script.google.com/macros/s/AKfycbz8x8mlUoOB1dJzMTtI-wR1QEea6TciU40hejJ-4WObWDYJN7GOzqQiweArl6i2hidH0w/exec";
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -43,16 +43,9 @@ export const WishesSection: React.FC<WishesSectionProps> = ({ eventParam = 'both
     setIsSubmitting(true);
 
     try {
-      const payload = new FormData();
-      payload.append('sheet', 'WISH');
-      payload.append('name', formData.name);
-      payload.append('message', formData.message);
-      payload.append('event', eventParam);
-
-      await fetch(scriptUrl, {
-        method: 'POST',
-        mode: 'no-cors',
-        body: payload,
+      await submitToSheet('WISH', {
+        name: formData.name,
+        message: formData.message,
       });
 
       const newWish: Wish = {
@@ -84,7 +77,7 @@ export const WishesSection: React.FC<WishesSectionProps> = ({ eventParam = 'both
         <span className="text-brand-plum uppercase tracking-[0.5em] text-[10px] font-bold mb-4 block drop-shadow-sm">
           Guestbook
         </span>
-        <h2 className="text-5xl sm:text-7xl font-sinhala text-stone-800 tracking-tight drop-shadow-sm">
+        <h2 className="text-4xl sm:text-7xl font-sinhala text-stone-800 tracking-tight drop-shadow-sm">
           ආශිර්වාද සහ <span className="italic font-light text-brand-plum">සුබපැතුම්</span>
         </h2>
         <div className="w-16 h-[1px] bg-gradient-to-r from-transparent via-brand-lavender/60 to-transparent mx-auto mt-8" />

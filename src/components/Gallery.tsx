@@ -3,13 +3,13 @@ import { motion, AnimatePresence } from 'motion/react';
 import { X, ZoomIn } from 'lucide-react';
 
 const images = [
-  { id: 1, url: '/IMG_6940.JPG.jpeg', fallback: 'https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=800&auto=format&fit=crop', title: 'The Beginning' },
-  { id: 2, url: '/IMG_6941.JPG.jpeg', fallback: 'https://images.unsplash.com/photo-1522673607200-164d1f624698?q=80&w=800&auto=format&fit=crop', title: 'Our Journey' },
-  { id: 3, url: '/IMG_6942.JPG.jpeg', fallback: 'https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=800&auto=format&fit=crop', title: 'A Thousand Words' },
-  { id: 4, url: '/IMG_6943.JPG.jpeg', fallback: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=800&auto=format&fit=crop', title: 'Endless Love' },
-  { id: 5, url: '/IMG_6944.JPG.jpeg', fallback: 'https://images.unsplash.com/photo-1532712938310-34cb3982ef74?q=80&w=800&auto=format&fit=crop', title: 'Cherished Moments' },
-  { id: 6, url: '/IMG_6945.JPG.jpeg', fallback: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=800&auto=format&fit=crop', title: 'Together Forever' },
-  { id: 7, url: '/IMG_6946.JPG.jpeg', fallback: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=800&auto=format&fit=crop', title: 'Forever & Always' },
+  { id: 1, url: '/gallery/photo-1.jpg', title: 'The Beginning' },
+  { id: 2, url: '/gallery/photo-2.jpg', title: 'Our Journey' },
+  { id: 3, url: '/gallery/photo-3.jpg', title: 'A Thousand Words' },
+  { id: 4, url: '/gallery/photo-4.jpg', title: 'Endless Love' },
+  { id: 5, url: '/gallery/photo-5.jpg', title: 'Cherished Moments' },
+  { id: 6, url: '/gallery/photo-6.jpg', title: 'Together Forever' },
+  { id: 7, url: '/gallery/photo-7.jpg', title: 'Forever & Always' },
 ];
 
 export const Gallery: React.FC = () => {
@@ -29,7 +29,7 @@ export const Gallery: React.FC = () => {
           .animate-marquee {
             display: flex;
             width: max-content;
-            animation: slide-left 40s linear infinite;
+            animation: slide-left 25s linear infinite;
           }
           .animate-marquee:hover {
             animation-play-state: paused;
@@ -52,7 +52,7 @@ export const Gallery: React.FC = () => {
             <span className="text-brand-plum uppercase tracking-[0.5em] sm:tracking-[0.6em] text-[10px] sm:text-[11px] font-bold font-sans drop-shadow-sm">A Lifetime OF</span>
             <div className="w-12 sm:w-24 h-[1px] bg-gradient-to-l from-transparent to-brand-plum/60" />
           </div>
-          <h2 className="text-5xl sm:text-7xl lg:text-[5.5rem] font-display text-stone-800 tracking-tight drop-shadow-sm leading-tight">
+          <h2 className="text-4xl sm:text-7xl lg:text-[5.5rem] font-display text-stone-800 tracking-tight drop-shadow-sm leading-tight">
             Our <span className="italic font-light text-brand-plum">Gallery</span>
           </h2>
         </motion.div>
@@ -75,7 +75,6 @@ export const Gallery: React.FC = () => {
             >
               <img
                 src={image.url}
-                onError={(e) => { e.currentTarget.src = image.fallback; }}
                 alt={image.title}
                 className="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-110"
               />
@@ -86,7 +85,7 @@ export const Gallery: React.FC = () => {
               <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex items-end justify-center p-8 sm:p-10 pointer-events-none">
                 <div className="text-white text-center transform translate-y-6 group-hover:translate-y-0 transition-transform duration-700 ease-out">
                   <ZoomIn className="w-8 h-8 sm:w-10 sm:h-10 mx-auto mb-4 text-white/90 drop-shadow-md opacity-80" />
-                  <p className="font-serif text-3xl sm:text-4xl tracking-wide drop-shadow-lg font-light">{image.title}</p>
+                  <p className="font-serif text-2xl sm:text-4xl tracking-wide drop-shadow-lg font-light">{image.title}</p>
                   <div className="w-16 h-[2px] bg-brand-plum/80 mx-auto mt-5 drop-shadow-md" />
                 </div>
               </div>
@@ -121,10 +120,6 @@ export const Gallery: React.FC = () => {
               exit={{ scale: 0.8, opacity: 0, y: 40 }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
               src={selectedImage}
-              onError={(e) => {
-                const fallbackImage = marqueeImages.find(img => img.url === selectedImage)?.fallback;
-                if (fallbackImage) e.currentTarget.src = fallbackImage;
-              }}
               alt="Gallery Preview"
               className="max-w-full max-h-[90vh] object-contain rounded-2xl shadow-[0_30px_80px_rgba(0,0,0,0.6)] border-[6px] border-white/10"
               onClick={(e) => e.stopPropagation()}
