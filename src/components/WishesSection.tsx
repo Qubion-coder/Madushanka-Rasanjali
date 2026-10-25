@@ -110,7 +110,7 @@ export const WishesSection: React.FC<WishesSectionProps> = ({ eventParam = 'both
                   required
                   type="text"
                   placeholder="E.g., Uncle John"
-                  className="w-full bg-white/80 px-6 py-4 rounded-full border border-stone-200/60 focus:ring-2 focus:ring-brand-lavender/30 focus:border-brand-plum/40 outline-none transition-all duration-300 font-serif italic text-lg shadow-inner placeholder:text-stone-300 text-stone-700"
+                  className="w-full bg-white/80 px-6 py-4 rounded-full border border-stone-200/60 focus:ring-2 focus:ring-brand-lavender/30 focus:border-brand-plum/40 outline-none transition-all duration-300 font-sinhala font-extrabold text-xl shadow-inner placeholder:text-stone-300 placeholder:font-normal text-stone-900"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 />
@@ -160,7 +160,7 @@ export const WishesSection: React.FC<WishesSectionProps> = ({ eventParam = 'both
               >
                 <div className="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-brand-plum/20 to-brand-lavender/40 group-hover:from-brand-plum group-hover:to-brand-lavender transition-all duration-500" />
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 sm:gap-4 mb-4">
-                  <h4 className="font-display text-2xl text-stone-800 tracking-tight pl-2">{wish.name}</h4>
+                  <h4 className="font-sinhala font-extrabold text-2xl text-stone-900 pl-2">{wish.name}</h4>
                   <span className="text-[9px] uppercase tracking-[0.2em] text-stone-400 font-bold bg-white/60 px-3 py-1 rounded-full border border-stone-100/50">
                     {wish.createdAt ? getRelativeTime(wish.createdAt) : 'just now'}
                   </span>

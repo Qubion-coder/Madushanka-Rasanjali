@@ -78,7 +78,7 @@ export const RSVPForm: React.FC<RSVPFormProps> = ({ inviteeName = '', eventName 
 
           <p className="text-stone-500/90 font-sinhala text-lg leading-relaxed mb-6">
             {inviteeName
-              ? <><span className="font-bold text-stone-800">{inviteeName}</span>, ඔබගේ පැමිණීම අපට මහත් සතුටකි. කරුණාකර ඔබගේ පැමිණීම පහතින් තහවුරු කරන්න.</>
+              ? <><span className="font-extrabold text-xl text-brand-plum">{inviteeName}</span>, ඔබගේ පැමිණීම අපට මහත් සතුටකි. කරුණාකර ඔබගේ පැමිණීම පහතින් තහවුරු කරන්න.</>
               : `ඔබගේ පැමිණීම අපට මහත් සතුටකි. කරුණාකර ඔබගේ පැමිණීම පහතින් තහවුරු කරන්න.`
             }
           </p>
@@ -126,7 +126,7 @@ export const RSVPForm: React.FC<RSVPFormProps> = ({ inviteeName = '', eventName 
                     required
                     type="text"
                     placeholder="E.g., John & Jane Doe"
-                    className="w-full bg-white/80 px-6 py-4 rounded-full border border-stone-200/60 focus:ring-2 focus:ring-brand-lavender/30 focus:border-brand-plum/40 outline-none transition-all duration-300 font-serif italic font-bold text-lg shadow-inner placeholder:text-stone-300 placeholder:font-normal"
+                    className="w-full bg-white/80 px-6 py-4 rounded-full border border-stone-200/60 focus:ring-2 focus:ring-brand-lavender/30 focus:border-brand-plum/40 outline-none transition-all duration-300 font-sinhala font-extrabold text-xl text-stone-900 shadow-inner placeholder:text-stone-300 placeholder:font-normal"
                     value={formData.fullName}
                     onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                   />
