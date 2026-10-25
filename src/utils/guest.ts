@@ -1,5 +1,5 @@
 export const COUPLE = {
-  groom: 'Madushanka',
+  groom: 'Madhusanka',
   bride: 'Rasanjali',
 } as const;
 

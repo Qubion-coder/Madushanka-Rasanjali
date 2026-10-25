@@ -21,7 +21,7 @@ export const CoupleDetails: React.FC = () => {
             <div className="w-12 sm:w-20 h-[1px] bg-gradient-to-l from-transparent to-brand-plum/60" />
           </div>
           <h2 className="text-3xl sm:text-7xl font-names text-stone-800 tracking-tight drop-shadow-sm">
-            Madushanka <span className="text-brand-plum font-light mx-2">&</span> Rasanjali
+            Madhusanka <span className="text-brand-plum font-light mx-2">&</span> Rasanjali
             <div className="text-2xl sm:text-5xl mt-4 font-sinhala text-stone-800 drop-shadow-sm">
               මධුසංක සහ රසාංජලී
             </div>
@@ -40,8 +40,13 @@ export const CoupleDetails: React.FC = () => {
         >
           <div className="mb-4 flex flex-col items-center lg:items-end">
             <span className="text-brand-plum uppercase tracking-[0.4em] text-[10px] font-bold mb-3 block">The Groom</span>
-            <h3 className="text-3xl sm:text-5xl font-names text-stone-800 mb-1 drop-shadow-sm">Madushanka</h3>
+            <h3 className="text-3xl sm:text-5xl font-names text-stone-800 mb-1 drop-shadow-sm">Madhusanka</h3>
             <h4 className="text-xl sm:text-3xl font-sinhala text-stone-700 mb-3 drop-shadow-sm">මධුසංක</h4>
+            <p className="text-stone-500/90 font-sinhala text-sm sm:text-base mt-2 text-center lg:text-right leading-relaxed">
+              අබේ අලංකාර හේරත් මුදියන්සේලාගේ සරත් බක්මීදෙනිය<br/>
+              මැතිතුමාගේ හා එම මැතිනියගේ<br/>
+              ආදරණීය පුත්
+            </p>
           </div>
           <div className="hidden lg:flex justify-end mt-8">
             <Heart className="w-6 h-6 text-brand-lavender/60 fill-brand-lavender/20 transform hover:scale-110 transition-transform cursor-pointer" />
@@ -63,6 +68,11 @@ export const CoupleDetails: React.FC = () => {
             <span className="text-brand-plum uppercase tracking-[0.4em] text-[10px] font-bold mb-3 block">The Bride</span>
             <h3 className="text-3xl sm:text-5xl font-names text-stone-800 mb-1 drop-shadow-sm">Rasanjali</h3>
             <h4 className="text-xl sm:text-3xl font-sinhala text-stone-700 mb-3 drop-shadow-sm">රසාංජලී</h4>
+            <p className="text-stone-500/90 font-sinhala text-sm sm:text-base mt-2 text-center lg:text-left leading-relaxed">
+              හතලහවත්ත වර්ෂකෝන්ගේ සරත් හතලහවත්ත<br/>
+              මැතිතුමාගේ හා එම මැතිනියගේ<br/>
+              ආදරණීය දියණිය
+            </p>
           </div>
           <div className="hidden lg:flex justify-start mt-8">
             <Heart className="w-6 h-6 text-brand-lavender/60 fill-brand-lavender/20 transform hover:scale-110 transition-transform cursor-pointer" />
